@@ -10,11 +10,6 @@ model = load_model("face_shape.keras")
 # Class names (same order as training)
 class_names = ['Heart', 'Oblong', 'Oval', 'Round', 'Square']
 
-st.title("Face Shape Detector")
-
-
-
-
 
 st.markdown("""
 <style>
