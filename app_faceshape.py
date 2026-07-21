@@ -6,6 +6,7 @@ from tensorflow.keras.models import load_model
 
 # Load Model
 model = load_model("face_shape.keras")
+print(model.input_shape)
 
 # Class names (same order as training)
 class_names = ['Heart', 'Oblong', 'Oval', 'Round', 'Square']
@@ -116,7 +117,7 @@ if uploaded_file is not None:
 
     st.image(uploaded_file, width=250)
     img = Image.open(uploaded_file).convert("RGB")
-    img = img.resize((224,224))
+    img = img.resize((128,128))
     img_array = image.img_to_array(img)
     img_array = img_array / 255.0
     img_array = np.expand_dims(img_array, axis=0)
@@ -151,7 +152,7 @@ if st.session_state.open_camera:
 
         img = Image.open(cam).convert("RGB")
         st.image(img, width=250)
-        img = img.resize((224,224))
+        img = img.resize((128,128))
         img_array = image.img_to_array(img)
         img_array = img_array / 255.0
         img_array = np.expand_dims(img_array, axis=0)
